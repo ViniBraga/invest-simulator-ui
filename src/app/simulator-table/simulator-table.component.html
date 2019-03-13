@@ -1,0 +1,24 @@
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Month</th>
+      <th scope="col">Opening Balance</th>
+      <th scope="col">Interest</th>
+      <th scope="col">Balance + Interest</th>
+      <th scope="col">Month Investment</th>
+      <th scope="col">Additional Investment</th>
+      <th scope="col">Total Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let month of months">
+      <td scope="row">{{month.month}}</td>
+      <td>{{month.openingBalance}}</td>
+      <td>{{month.interest}}</td>
+      <td>{{month.balancePlusInterest}}</td>
+      <td>{{month.monthInvestment}}</td>
+      <td>{{month.additionalInvestment}}</td>
+      <td>{{month.totalBalance}}</td>
+    </tr>
+  </tbody>
+</table>

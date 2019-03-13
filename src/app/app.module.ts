@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { SimulatorPanelComponent } from './simulator-panel/simulator-panel.component';
+import { SimulatorPanelComponent } from "./simulator-panel/SimulatorPanelComponent";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTableModule } from '@angular/material/table';
@@ -11,11 +11,15 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import { SimulatorFormComponent } from './simulator-form/simulator-form.component';
+import { SimulatorTableComponent } from './simulator-table/simulator-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SimulatorPanelComponent
+    SimulatorPanelComponent,
+    SimulatorFormComponent,
+    SimulatorTableComponent
   ],
   imports: [
     BrowserModule,
