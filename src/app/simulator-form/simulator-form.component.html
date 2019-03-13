@@ -9,7 +9,7 @@
             <span class="input-group-text">$</span>
           </div>
           <input type="number" class="form-control" aria-label="Dollar amount" name="initialInvestment" 
-          placeholder="Initial Investment" [(ngModel)]="simulatorFields.initialInvestment" (ngModelChange)="updateTable($event)">
+          placeholder="Initial Investment" [(ngModel)]="simulatorFields.initialInvestment" (ngModelChange)="updateTable()">
         </div>
       </td>
       <td>
@@ -19,7 +19,7 @@
             <span class="input-group-text">$</span>
           </div>
           <input type="number" class="form-control" aria-label="Dollar amount" name="monthInvestment" 
-          placeholder="Month Investment" [(ngModel)]="simulatorFields.monthInvestment" (ngModelChange)="updateTable($event)">
+          placeholder="Month Investment" [(ngModel)]="simulatorFields.monthInvestment" (ngModelChange)="updateTable()">
         </div>
       </td>
     </tr>
@@ -31,14 +31,14 @@
             <span class="input-group-text">%</span>
           </div>
           <input type="number" class="form-control" aria-label="Tax Rate" name="profitabilityRate" placeholder="Tax Rate" 
-          [(ngModel)]="simulatorFields.profitabilityRate" (ngModelChange)="updateTable($event)">
+          [(ngModel)]="simulatorFields.profitabilityRate" (ngModelChange)="updateTable()">
         </div>
       </td>
       <td>
         <div>Months</div>
         <div class="input-group mb-3">
             <input type="number" class="form-control" name="deadline" placeholder="Initial Investment" 
-            [(ngModel)]="simulatorFields.deadline" (ngModelChange)="updateTable($event)">
+            [(ngModel)]="simulatorFields.deadline" (ngModelChange)="updateTable()">
           </div>
       </td>
     </tr>

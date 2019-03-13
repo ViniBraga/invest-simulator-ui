@@ -17,7 +17,10 @@
       <td>{{month.interest}}</td>
       <td>{{month.balancePlusInterest}}</td>
       <td>{{month.monthInvestment}}</td>
-      <td>{{month.additionalInvestment}}</td>
+      <td>
+        <input type="number" class="form-control" aria-label="{{month.month}}" name="profitabilityRate" placeholder="Tax Rate" 
+          [(ngModel)]="month.additionalInvestment" (ngModelChange)="includeAdditionalInvestment(month.month, month.additionalInvestment)">
+      </td>
       <td>{{month.totalBalance}}</td>
     </tr>
   </tbody>

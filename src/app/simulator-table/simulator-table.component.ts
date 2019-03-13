@@ -15,9 +15,12 @@ export class SimulatorTableComponent implements OnInit {
 
   ngOnInit() {
     this.simulatorCalculatorService.getMonths().subscribe((m) => this.months = m.months);
+    this.simulatorCalculatorService.initializeMonths();
+  }
 
-    let initialMonth = 1;
-    let additionalInvestment = 0;
+  includeAdditionalInvestment(initialMonth, additionalInvestment) {
+    console.log(initialMonth);
+    console.log(additionalInvestment);
     this.simulatorCalculatorService.updateMonthsFrom(initialMonth, additionalInvestment);
   }
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SimulatorCalculatorService } from '../simulator-calculator.service';
 
 @Component({
   selector: 'app-simulator-panel',
@@ -9,7 +8,7 @@ import { SimulatorCalculatorService } from '../simulator-calculator.service';
 })
 export class SimulatorPanelComponent implements OnInit {
 
-  constructor(private simulatorCalculatorService: SimulatorCalculatorService) {}
+  constructor() {}
 
   ngOnInit() {
   }

@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SimulatorFields } from './entity/simulator-fields';
-import { Builder } from './entity/builder';
 import { SimulatorRow } from './entity/simulator-row';
 import { Subject, Observable } from 'rxjs';
-
 
 const roundValue = ((num, n) => {
   const m = Math.pow(10, n);
@@ -51,7 +49,7 @@ export class SimulatorCalculatorService {
     let interest = roundValue(openingBalance * this.simulatorFields.profitabilityRate / 100 , 2) ;
     let balancePlusInterest = roundValue(openingBalance + interest , 2);
     let monthInvestment = roundValue(this.simulatorFields.monthInvestment, 2);
-    let totalBalance = balancePlusInterest + monthInvestment + additionalInvestment;
+    let totalBalance = roundValue(balancePlusInterest + monthInvestment + additionalInvestment, 2);
 
     return {
       month,

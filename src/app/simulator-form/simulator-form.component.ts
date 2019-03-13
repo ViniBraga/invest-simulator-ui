@@ -24,14 +24,8 @@ export class SimulatorFormComponent implements OnInit {
     this.simulatorCalculatorService.initializeMonths();
   }
 
-  updateTable(event) {
+  updateTable() {
     this.initializeTable();
-  }
-
-  includeAdditionalInvestment(event) {
-    let initialMonth = 1;
-    let additionalInvestment = 0;
-    this.simulatorCalculatorService.updateMonthsFrom(initialMonth, additionalInvestment);
   }
 
 }
