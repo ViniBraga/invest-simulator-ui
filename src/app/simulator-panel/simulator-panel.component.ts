@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 
 const roundValue = ((num, n) => {
@@ -6,23 +7,37 @@ const roundValue = ((num, n) => {
   return (Math.round(num * m ) / m);
 });
 
+@NgModule({
+  imports: [
+    FormsModule
+  ]
+})
+
 @Component({
   selector: 'app-simulator-panel',
   templateUrl: './simulator-panel.component.html',
-  styleUrls: ['./simulator-panel.component.css']
+  styleUrls: ['./simulator-panel.component.css'],
+
 })
 export class SimulatorPanelComponent implements OnInit {
 
   initialInvestment = 5000;
   monthInvestment = 200;
-  deadline = 12;
+
+  @Input() deadline: number = 12;
+
   profitabilityRate = 2.95;
 
   months = [];
 
   constructor() { 
+    this.initializeTable();
+  }
+
+  initializeTable(){
     let initialMonth = 1;
     let additionalInvestment = 0;
+    this.months = [];
     this.updateMonthsFrom(initialMonth, additionalInvestment);
   }
 
@@ -53,6 +68,10 @@ export class SimulatorPanelComponent implements OnInit {
       monthInvestment: monthInvestment,
       additionalInvestment: additionalInvestment,
       totalBalance: totalBalance}
+  }
+
+  updateTable(event) {
+    this.initializeTable();
   }
 
 
