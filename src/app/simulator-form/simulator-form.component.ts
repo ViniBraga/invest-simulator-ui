@@ -8,7 +8,7 @@ import { SimulatorFields } from '../entity/simulator-fields';
   styleUrls: ['./simulator-form.component.css']
 })
 export class SimulatorFormComponent implements OnInit {
-
+  
   simulatorFields: SimulatorFields;
 
   constructor(private simulatorCalculatorService: SimulatorCalculatorService) { 

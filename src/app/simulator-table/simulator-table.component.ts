@@ -7,6 +7,8 @@ import { SimulatorCalculatorService } from '../simulator-calculator.service';
   styleUrls: ['./simulator-table.component.css']
 })
 export class SimulatorTableComponent implements OnInit {
+  
+  editar: boolean;
 
   months: any[];
 
@@ -19,8 +21,6 @@ export class SimulatorTableComponent implements OnInit {
   }
 
   includeAdditionalInvestment(initialMonth, additionalInvestment) {
-    console.log(initialMonth);
-    console.log(additionalInvestment);
     this.simulatorCalculatorService.updateMonthsFrom(initialMonth, additionalInvestment);
   }
 

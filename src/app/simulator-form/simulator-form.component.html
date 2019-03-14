@@ -25,14 +25,10 @@
     </tr>
     <tr>
       <td>
-        <div>Average of Profitability Rate</div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">%</span>
-          </div>
-          <input type="number" class="form-control" aria-label="Tax Rate" name="profitabilityRate" placeholder="Tax Rate" 
+        <app-simulator-input type="%" title="Average of Profitability Rate" >
+            <input type="number" class="form-control" aria-label="Tax Rate" name="profitabilityRate" placeholder="Tax Rate" 
           [(ngModel)]="simulatorFields.profitabilityRate" (ngModelChange)="updateTable()">
-        </div>
+        </app-simulator-input>
       </td>
       <td>
         <div>Months</div>

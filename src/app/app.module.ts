@@ -13,13 +13,15 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { SimulatorFormComponent } from './simulator-form/simulator-form.component';
 import { SimulatorTableComponent } from './simulator-table/simulator-table.component';
+import { SimulatorInputComponent } from './simulator-input/simulator-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SimulatorPanelComponent,
     SimulatorFormComponent,
-    SimulatorTableComponent
+    SimulatorTableComponent,
+    SimulatorInputComponent
   ],
   imports: [
     BrowserModule,
