@@ -17,15 +17,10 @@ export class SimulatorFormComponent implements OnInit {
 
   ngOnInit() {
     this.simulatorCalculatorService.init(this.simulatorFields);
-    this.simulatorCalculatorService.initializeMonths();
   }
 
-  initializeTable(){
-    this.simulatorCalculatorService.initializeMonths();
-  }
-
-  updateTable() {
-    this.initializeTable();
+  generateTable() {
+    this.simulatorCalculatorService.generateTable();
   }
 
 }

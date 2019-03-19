@@ -23,36 +23,24 @@ export class SimulatorCalculatorService {
     this.simulatorFields = simulatorFields;
   }
 
-  initializeMonths(){
+  generateTable(){
     this.months = [];
-    let initialMonth = 1;
     let additionalInvestment = 0;
-    this.updateMonthsFrom(initialMonth, additionalInvestment);
-  }
-
-  
-
-
-
-  updateMonthsFrom(month, additionalInvestment) {
-    for (let index = month - 1; index < this.simulatorFields.deadline; index++) {
+    for (let index = 0; index < this.simulatorFields.deadline; index++) {
       let previousTotalBalance = index === 0 ? this.simulatorFields.initialInvestment : this.months[index - 1].totalBalance;
       let month = this.generateMonth(previousTotalBalance, index + 1, additionalInvestment);
-      if(this.months[index]) {
-        this.months[index] = month;
-      } else {
-        this.months.push(month);
-      }
+      this.months.push(month);
     }
     this.subject.next({ months: this.months });
   }
 
   generateMonth(previousTotalBalance, currentMonth, additionalInvestment): SimulatorRow {
-    let month = currentMonth;
-    let openingBalance = roundValue(previousTotalBalance, 2);
-    let interest = roundValue(openingBalance * this.simulatorFields.profitabilityRate / 100 , 2) ;
+    let profitabilityRate = this.simulatorFields.profitabilityRate ? this.simulatorFields.profitabilityRate : 0;
+    let month = currentMonth ? currentMonth : 0;
+    let openingBalance = roundValue(previousTotalBalance ? previousTotalBalance : 0, 2);
+    let interest = roundValue(openingBalance * profitabilityRate / 100 , 2) ;
     let balancePlusInterest = roundValue(openingBalance + interest , 2);
-    let monthInvestment = roundValue(this.simulatorFields.monthInvestment, 2);
+    let monthInvestment = roundValue(this.simulatorFields.monthInvestment ? this.simulatorFields.monthInvestment : 0, 2);
     let totalBalance = roundValue(balancePlusInterest + monthInvestment + additionalInvestment, 2);
 
     return {
@@ -68,6 +56,33 @@ export class SimulatorCalculatorService {
 
   getMonths(): Observable<any> {
     return this.subject.asObservable();
+  }
+
+  applyAdditionalInvestment(month) {
+    this.updateMonth(month);
+    this.recalculateMonthsFrom(month.month - 1)
+    this.subject.next({ months: this.months });
+  }
+
+  updateMonth(month) {
+    let balancePlusInterest = month.balancePlusInterest;
+    let monthInvestment = month.monthInvestment;
+    let additionalInvestment = month.additionalInvestment;
+    month.totalBalance = roundValue(balancePlusInterest + monthInvestment + additionalInvestment, 2);
+  }
+
+  recalculateMonthsFrom(indexMonthUpdated) {
+    let previousTotalBalance = this.months[indexMonthUpdated].totalBalance;
+    if(this.months[indexMonthUpdated + 1]) {
+      for (let index = indexMonthUpdated + 1; index < this.simulatorFields.deadline; index++) {
+        this.months[index].openingBalance = roundValue(previousTotalBalance, 2) ;
+        this.months[index].interest = roundValue(this.months[index].openingBalance * this.simulatorFields.profitabilityRate / 100 , 2)
+        this.months[index].balancePlusInterest = roundValue(this.months[index].openingBalance + this.months[index].interest, 2)
+        this.months[index].monthInvestment = roundValue(this.simulatorFields.monthInvestment, 2)
+        this.months[index].totalBalance = roundValue(this.months[index].balancePlusInterest + this.months[index].monthInvestment + this.months[index].additionalInvestment, 2)
+        previousTotalBalance = this.months[index].totalBalance;
+      }
+    }
   }
 
 }
