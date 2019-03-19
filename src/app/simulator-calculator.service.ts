@@ -30,6 +30,10 @@ export class SimulatorCalculatorService {
     this.updateMonthsFrom(initialMonth, additionalInvestment);
   }
 
+  
+
+
+
   updateMonthsFrom(month, additionalInvestment) {
     for (let index = month - 1; index < this.simulatorFields.deadline; index++) {
       let previousTotalBalance = index === 0 ? this.simulatorFields.initialInvestment : this.months[index - 1].totalBalance;

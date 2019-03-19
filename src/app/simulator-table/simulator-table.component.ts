@@ -8,7 +8,7 @@ import { SimulatorCalculatorService } from '../simulator-calculator.service';
 })
 export class SimulatorTableComponent implements OnInit {
   
-  editar: boolean;
+  edit: boolean;
 
   months: any[];
 

@@ -17,13 +17,18 @@
       <td>{{month.interest}}</td>
       <td>{{month.balancePlusInterest}}</td>
       <td>{{month.monthInvestment}}</td>
-      <td *ngIf="!month.editar">{{month.additionalInvestment}} <button (click)="month.editar = true" >add</button></td>
-      <td *ngIf="month.editar">
-      
+
+      <td>
+          <input type="number" class="form-control" aria-label="input" name="profitabilityRate{{month.month}}" 
+          [(ngModel)]="month.additionalInvestment" (ngModelChange)="includeAdditionalInvestment(month.month, month.additionalInvestment)">
+      </td>
+
+      <!-- <td *ngIf="!month.edit">{{month.additionalInvestment}} <button (click)="month.edit = true" >add</button></td>
+      <td *ngIf="month.edit">
         <input type="number" class="form-control" aria-label="input" name="profitabilityRate{{month.month}}" placeholder="Tax Rate" 
           [(ngModel)]="month.additionalInvestment" (ngModelChange)="includeAdditionalInvestment(month.month, month.additionalInvestment)">
-      
-      </td>
+      </td> -->
+
       <td>{{month.totalBalance}}</td>
     </tr>
   </tbody>
