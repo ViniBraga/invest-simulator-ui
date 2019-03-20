@@ -1,4 +1,4 @@
-<table class="table table-dark" ng-if="months.length == 0">
+<table class="table table-dark" *ngIf="months && months.length > 0">
   <thead>
     <tr>
       <th scope="col">Month</th>
@@ -12,16 +12,18 @@
   </thead>
   <tbody>
     <tr *ngFor="let month of months">
+      <td>{{month | json}}</td>
       <td scope="row">{{month.month}}</td>
-      <td>{{month.openingBalance}}</td>
-      <td>{{month.interest}}</td>
-      <td>{{month.balancePlusInterest}}</td>
-      <td>{{month.monthInvestment}}</td>
+      <td>{{month.openingBalance | currency:'USD'}}</td>
+      <td>{{month.interest | currency:'USD'}}</td>
+      <td>{{month.balancePlusInterest | currency:'USD'}}</td>
+      <td>{{month.monthInvestment | currency:'USD'}}</td>
       <td>
-          <input type="number" class="form-control" aria-label="input" name="profitabilityRate{{month.month}}" 
-          [(ngModel)]="month.additionalInvestment" (ngModelChange)="applyAdditionalInvestment(month)">
+          <input type="text" class="form-control" aria-label="input" name="profitabilityRate{{month.month}}" 
+          [(ngModel)]="month.additionalInvestment" (ngModelChange)="applyAdditionalInvestment(month)" mask="comma_separator.2">
       </td>
-      <td>{{month.totalBalance}}</td>
+      <td>{{month.totalBalance | currency:'USD'}}</td>
+      <!-- <td>{{month.totalBalance | currency:'USD'}}</td> -->
     </tr>
   </tbody>
 </table>

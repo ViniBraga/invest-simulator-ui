@@ -3,28 +3,28 @@
       <tr>
         <td>
           <app-simulator-input type="$" title="Initial Investment" >
-              <input type="number" class="form-control" aria-label="Dollar amount" name="initialInvestment" 
-            placeholder="Initial Investment" [(ngModel)]="simulatorFields.initialInvestment">
+              <input type="text" class="form-control" aria-label="Dollar amount" name="initialInvestment" 
+            placeholder="Initial Investment" [(ngModel)]="simulatorFields.initialInvestment" mask="comma_separator.2">
           </app-simulator-input>
         </td>
         <td>
           <app-simulator-input type="$" title="Monthly Investment" >
-              <input type="number" class="form-control" aria-label="Dollar amount" name="monthInvestment" 
-            placeholder="Month Investment" [(ngModel)]="simulatorFields.monthInvestment">
+              <input type="text" class="form-control" aria-label="Dollar amount" name="monthInvestment" 
+            placeholder="Month Investment" [(ngModel)]="simulatorFields.monthInvestment" mask="comma_separator.2">
           </app-simulator-input>
         </td>
       </tr>
       <tr>
         <td>
           <app-simulator-input type="%" title="Average of Profitability Rate" >
-              <input type="number" class="form-control" aria-label="Tax Rate" name="profitabilityRate" placeholder="Tax Rate" 
-            [(ngModel)]="simulatorFields.profitabilityRate">
+              <input type="text" class="form-control" aria-label="Tax Rate" name="profitabilityRate" placeholder="Tax Rate" 
+            [(ngModel)]="simulatorFields.profitabilityRate" mask="percent" mask="comma_separator.2">
           </app-simulator-input>
         </td>
         <td>
           <app-simulator-input type="" title="Months" >
-              <input type="number" class="form-control" aria-label="Tax Rate" name="deadline" placeholder="Deadline" 
-            [(ngModel)]="simulatorFields.deadline">
+              <input digitOnly type="text" class="form-control" aria-label="Tax Rate" name="deadline" placeholder="Deadline" 
+            [(ngModel)]="simulatorFields.deadline" mask="0000">
           </app-simulator-input>
         </td>
       </tr>

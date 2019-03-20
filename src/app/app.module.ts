@@ -12,6 +12,7 @@ import { SimulatorFormComponent } from './simulator-form/simulator-form.componen
 import { SimulatorTableComponent } from './simulator-table/simulator-table.component';
 import { SimulatorInputComponent } from './simulator-input/simulator-input.component';
 import { SimulatorPanelComponent } from './simulator-panel/simulator-panel.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SimulatorPanelComponent } from './simulator-panel/simulator-panel.compo
     MatSelectModule,
     MatInputModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
