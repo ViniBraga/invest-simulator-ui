@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { SimulatorFields } from './entity/simulator-fields';
 import { SimulatorRow } from './entity/simulator-row';
 import { Subject, Observable } from 'rxjs';
-import { angularMath } from 'angular-ts-math';
 
 @Injectable({
   providedIn: 'root'
@@ -90,9 +89,7 @@ export class SimulatorCalculatorService {
     if(this.months[indexMonthUpdated + 1]) {
       for (let index = indexMonthUpdated + 1; index < this.simulatorFieldsProcess.deadline; index++) {
         this.months[index].openingBalance = previousTotalBalance;
-        //this.months[index].interest = this.months[index].openingBalance * this.simulatorFields.profitabilityRate / 100;
-        this.months[index].interest = 20;//TODO ARRUMAR
-        
+        this.months[index].interest = this.months[index].openingBalance * this.simulatorFields.profitabilityRate / 100;
         this.months[index].balancePlusInterest = this.months[index].openingBalance + this.months[index].interest;
         this.months[index].monthInvestment = this.simulatorFieldsProcess.monthInvestment;
         this.months[index].totalBalance = this.months[index].balancePlusInterest + this.months[index].monthInvestment + this.months[index].additionalInvestment;

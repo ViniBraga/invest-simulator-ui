@@ -1,4 +1,149 @@
 <form>
+
+
+    <div class="container table table-dark">
+        <div class="row">
+           <div class="col-xs-12">
+              Linha com 12 colunas em qualquer dispositivo
+           </div>
+        </div>
+
+        <div class="row">
+           <div class="col-xs-4">
+              coluna 1
+           </div>
+           <div class="col-xs-4">
+              coluna 2
+           </div>
+           <div class="col-xs-4">
+              coluna 3
+           </div>
+        </div>
+
+        <div class="row">
+           <div class="col-md-4 col-sm-12">
+              coluna 1
+           </div>
+           <div class="col-md-4 col-sm-12">
+              coluna 2
+           </div>
+           <div class="col-md-4 col-sm-12">
+              coluna 3
+           </div>
+        </div>
+     </div>
+
+
+     <div class="container">
+        <table class="table table table-dark">
+           <thead>
+              <tr>
+                 <th>Coluna 1</th>
+                 <th>Coluna 2</th>
+                 <th>Coluna 3</th>
+              </tr>
+           </thead>
+           <tbody>
+              <tr>
+                 <td>conteúdo 1</td>
+                 <td>conteúdo 2</td>
+                 <td>conteúdo 3</td>
+              </tr>
+           </tbody>
+        </table>
+
+        <table class="table table-striped table table-dark">
+           <thead>
+              <tr>
+                 <th>Coluna 1</th>
+                 <th>Coluna 2</th>
+                 <th>Coluna 3</th>
+                 <th>Coluna 4</th>
+                 <th>Coluna 5</th>
+                 <th>Coluna 6</th>
+                 <th>Coluna 7</th>
+                 <th>Coluna 8</th>
+                 <th>Coluna 9</th>
+                 <th>Coluna 10</th>
+              </tr>
+           </thead>
+           <tbody>
+              <tr>
+                 <td>conteúdo 1</td>
+                 <td>conteúdo 2</td>
+                 <td>conteúdo 3</td>
+                 <td>conteúdo 4</td>
+                 <td>conteúdo 5</td>
+                 <td>conteúdo 6</td>
+                 <td>conteúdo 7</td>
+                 <td>conteúdo 8</td>
+                 <td>conteúdo 9</td>
+                 <td>conteúdo 10</td>
+              </tr>
+              <tr>
+                 <td>conteúdo 1</td>
+                 <td>conteúdo 2</td>
+                 <td>conteúdo 3</td>
+                 <td>conteúdo 4</td>
+                 <td>conteúdo 5</td>
+                 <td>conteúdo 6</td>
+                 <td>conteúdo 7</td>
+                 <td>conteúdo 8</td>
+                 <td>conteúdo 9</td>
+                 <td>conteúdo 10</td>
+              </tr>
+           </tbody>
+        </table>
+
+        <div class="table-responsive table table-dark">
+           <table class="table table-striped">
+              <thead>
+                 <tr>
+                    <th>Coluna 1</th>
+                    <th>Coluna 2</th>
+                    <th>Coluna 3</th>
+                    <th>Coluna 4</th>
+                    <th>Coluna 5</th>
+                    <th>Coluna 6</th>
+                    <th>Coluna 7</th>
+                    <th>Coluna 8</th>
+                    <th>Coluna 9</th>
+                    <th>Coluna 10</th>
+                 </tr>
+              </thead>
+              <tbody>
+                 <tr>
+                    <td>conteúdo 1</td>
+                    <td>conteúdo 2</td>
+                    <td>conteúdo 3</td>
+                    <td>conteúdo 4</td>
+                    <td>conteúdo 5</td>
+                    <td>conteúdo 6</td>
+                    <td>conteúdo 7</td>
+                    <td>conteúdo 8</td>
+                    <td>conteúdo 9</td>
+                    <td>conteúdo 10</td>
+                 </tr>
+                 <tr>
+                    <td>conteúdo 1</td>
+                    <td>conteúdo 2</td>
+                    <td>conteúdo 3</td>
+                    <td>conteúdo 4</td>
+                    <td>conteúdo 5</td>
+                    <td>conteúdo 6</td>
+                    <td>conteúdo 7</td>
+                    <td>conteúdo 8</td>
+                    <td>conteúdo 9</td>
+                    <td>conteúdo 10</td>
+                 </tr>
+              </tbody>
+           </table>
+        </div>
+     </div>
+      
+
+
+
     <table class="table table-dark">
       <tr>
         <td>
@@ -10,7 +155,7 @@
         <td>
           <app-simulator-input type="$" title="Monthly Investment" >
               <input type="text" class="form-control" aria-label="Dollar amount" name="monthInvestment" 
-            placeholder="Month Investment" [(ngModel)]="simulatorFields.monthInvestment" mask="comma_separator.2">
+            placeholder="Monthly Investment" [(ngModel)]="simulatorFields.monthInvestment" mask="comma_separator.2">
           </app-simulator-input>
         </td>
       </tr>
@@ -30,8 +175,14 @@
       </tr>
     </table>
   
-    <button type="button" class="btn btn-primary btn-lg" (click)="generateTable()">Simulate</button>
-  
+    <p>
+      <button *ngIf="isTableVoid()" type="button" class="btn btn-primary btn-lg" (click)="generateTable()">Simulate</button>
+      <button *ngIf="!isTableVoid()" type="button" class="btn btn-primary btn-lg" (click)="generateTable()">Recalculate</button>
+      
+      &nbsp;
+      <button *ngIf="!isTableVoid()" type="button" class="btn btn-primary btn-lg" (click)="generateTable()">Plot Graph</button>
+    </p>
+
     <br/><br/>
   
   </form>

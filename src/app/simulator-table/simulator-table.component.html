@@ -12,7 +12,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let month of months">
-      <td>{{month | json}}</td>
       <td scope="row">{{month.month}}</td>
       <td>{{month.openingBalance | currency:'USD'}}</td>
       <td>{{month.interest | currency:'USD'}}</td>
@@ -23,7 +22,6 @@
           [(ngModel)]="month.additionalInvestment" (ngModelChange)="applyAdditionalInvestment(month)" mask="comma_separator.2">
       </td>
       <td>{{month.totalBalance | currency:'USD'}}</td>
-      <!-- <td>{{month.totalBalance | currency:'USD'}}</td> -->
     </tr>
   </tbody>
 </table>

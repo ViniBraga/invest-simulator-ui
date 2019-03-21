@@ -23,4 +23,11 @@ export class SimulatorFormComponent implements OnInit {
     this.simulatorCalculatorService.generateTable();
   }
 
+  isTableVoid(){
+    if (this.simulatorCalculatorService.months && this.simulatorCalculatorService.months.length > 0) {
+      return false;
+    }
+    return true;
+  }
+
 }
