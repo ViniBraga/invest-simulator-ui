@@ -46,13 +46,10 @@ export class SimulatorCalculatorService {
 
     let monthInvestment: number = this.simulatorFieldsProcess.monthInvestment ? this.simulatorFieldsProcess.monthInvestment : 0;
     
-    
-
     let additionalInvestment = 0;
     let totalBalance =  balancePlusInterest + monthInvestment;
 
-    
-    const s = {
+    return {
       month,
       openingBalance,
       interest,
@@ -60,10 +57,7 @@ export class SimulatorCalculatorService {
       monthInvestment,
       additionalInvestment,
       totalBalance
-    }
-    
-    console.log(JSON.stringify(s));
-    return s;
+    };
   }
 
   getMonths(): Observable<any> {

@@ -13,6 +13,7 @@ import { SimulatorTableComponent } from './simulator-table/simulator-table.compo
 import { SimulatorInputComponent } from './simulator-input/simulator-input.component';
 import { SimulatorPanelComponent } from './simulator-panel/simulator-panel.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { SimulatorResultComponent } from './simulator-result/simulator-result.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgxMaskModule } from 'ngx-mask';
     SimulatorPanelComponent,
     SimulatorFormComponent,
     SimulatorTableComponent,
-    SimulatorInputComponent
+    SimulatorInputComponent,
+    SimulatorResultComponent
   ],
   imports: [
     BrowserModule,
