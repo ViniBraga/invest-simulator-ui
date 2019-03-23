@@ -7,7 +7,7 @@
       <div class="col-sm-2">Interest</div>
       <div class="col-sm-2">Balance + Interest</div>
       <div class="col-sm-2">Month Investment</div>
-      <div class="col-sm-1">Additional</div>
+      <div class="col-md-1 d-none d-md-block">Additional</div>
       <div class="col-sm-2">Total Balance</div>
     </div>
     <div class="table-content row" *ngFor="let month of months">
@@ -16,7 +16,7 @@
       <div class="col-sm-2">{{month.interest | currency:'USD'}}</div>
       <div class="col-sm-2">{{month.balancePlusInterest | currency:'USD'}}</div>
       <div class="col-sm-2">{{month.monthInvestment | currency:'USD'}}</div>
-      <div class="col-sm-1">
+      <div class="col-md-1 d-none d-md-block">
         <input type="text" class="table-input" aria-label="input" name="profitabilityRate{{month.month}}" 
         [(ngModel)]="month.additionalInvestment" (ngModelChange)="applyAdditionalInvestment(month)" mask="comma_separator.2">
       </div>
