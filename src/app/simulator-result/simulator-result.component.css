@@ -1,0 +1,15 @@
+.result {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #fff;
+    background-color: #343a40;
+    border-radius: 1.25rem;
+}
+
+.result-label {
+    text-align: center;
+}
+
+.result-value {
+    text-align: left;
+}

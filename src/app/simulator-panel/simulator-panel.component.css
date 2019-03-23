@@ -1,16 +1,30 @@
-.main-content {
-    background-color: white;
+.header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 3px;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px 
 }
 
-table {
-    width: 100%;
+.title {
+    margin-bottom: 0.75rem;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
 }
 
-.example-container {
-    display: flex;
-    flex-direction: column;
+.sub-title {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center;
+    color: white;
 }
-  
-.example-container > * {
-    width: 100%;
+
+.footer {
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-top: 1px;
+    color: #ced3d8 !important;
+    text-align: center;
 }

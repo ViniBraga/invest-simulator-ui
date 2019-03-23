@@ -1,81 +1,41 @@
-<form class="table table-dark">
+<form class="form">
   <div class="row">
-    <div class="col-sm-6 col-xs-12">
+    <div class="col-md-6 col-xs-12">
         <app-simulator-input type="$" title="Initial Investment" >
-            <input type="text" class="form-control" aria-label="Dollar amount" name="initialInvestment" 
+            <input type="text" class="input-field" aria-label="Dollar amount" name="initialInvestment" 
           placeholder="Initial Investment" [(ngModel)]="simulatorFields.initialInvestment" mask="comma_separator.2">
         </app-simulator-input>
     </div>
-    <div class="col-sm-6 col-xs-12">
+    <div class="col-md-6 col-xs-12">
         <app-simulator-input type="$" title="Monthly Investment" >
-            <input type="text" class="form-control" aria-label="Dollar amount" name="monthInvestment" 
+            <input type="text" class="input-field" aria-label="Dollar amount" name="monthInvestment" 
           placeholder="Monthly Investment" [(ngModel)]="simulatorFields.monthInvestment" mask="comma_separator.2">
         </app-simulator-input>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-6 col-xs-12">
+    <div class="col-md-6 col-xs-12">
         <app-simulator-input type="%" title="Average of Profitability Rate" >
-            <input type="text" class="form-control" aria-label="Tax Rate" name="profitabilityRate" placeholder="Tax Rate" 
+            <input type="text" class="input-field" aria-label="Tax Rate" name="profitabilityRate" placeholder="Tax Rate" 
           [(ngModel)]="simulatorFields.profitabilityRate" mask="percent" mask="comma_separator.2">
         </app-simulator-input>
     </div>
-    <div class="col-sm-6 col-xs-12">
+    <div class="col-md-6 col-xs-12">
         <app-simulator-input type="" title="Months" >
-            <input digitOnly type="text" class="form-control" aria-label="Tax Rate" name="deadline" placeholder="Deadline" 
+            <input digitOnly type="text" class="input-field deadline-field" aria-label="Tax Rate" name="deadline" placeholder="Deadline" 
           [(ngModel)]="simulatorFields.deadline" mask="0000">
         </app-simulator-input>
     </div>
   </div>
 
-  <div class="col-12">
+  <div class="button-section col-12">
       <button *ngIf="isTableVoid()" type="button" class="btn btn-primary btn-lg" (click)="generateTable()">Simulate</button>
       <button *ngIf="!isTableVoid()" type="button" class="btn btn-primary btn-lg" (click)="generateTable()">Recalculate</button>
       
+      <br><br>
+      <!--
       &nbsp;
-      <button *ngIf="!isTableVoid()" type="button" class="btn btn-primary btn-lg" (click)="generateTable()">Plot Graph</button>
+      <button *ngIf="!isTableVoid()" type="button" class="btn btn-primary btn-lg" (click)="generateTable()">Plot Chart</button>-->
   </div>
 
-
-<!--    <table class="table table-dark">
-      <tr>
-        <td>
-          <app-simulator-input type="$" title="Initial Investment" >
-              <input type="text" class="form-control" aria-label="Dollar amount" name="initialInvestment" 
-            placeholder="Initial Investment" [(ngModel)]="simulatorFields.initialInvestment" mask="comma_separator.2">
-          </app-simulator-input>
-        </td>
-        <td>
-          <app-simulator-input type="$" title="Monthly Investment" >
-              <input type="text" class="form-control" aria-label="Dollar amount" name="monthInvestment" 
-            placeholder="Monthly Investment" [(ngModel)]="simulatorFields.monthInvestment" mask="comma_separator.2">
-          </app-simulator-input>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <app-simulator-input type="%" title="Average of Profitability Rate" >
-              <input type="text" class="form-control" aria-label="Tax Rate" name="profitabilityRate" placeholder="Tax Rate" 
-            [(ngModel)]="simulatorFields.profitabilityRate" mask="percent" mask="comma_separator.2">
-          </app-simulator-input>
-        </td>
-        <td>
-          <app-simulator-input type="" title="Months" >
-              <input digitOnly type="text" class="form-control" aria-label="Tax Rate" name="deadline" placeholder="Deadline" 
-            [(ngModel)]="simulatorFields.deadline" mask="0000">
-          </app-simulator-input>
-        </td>
-      </tr>
-    </table>
-  
-    <p>
-      <button *ngIf="isTableVoid()" type="button" class="btn btn-primary btn-lg" (click)="generateTable()">Simulate</button>
-      <button *ngIf="!isTableVoid()" type="button" class="btn btn-primary btn-lg" (click)="generateTable()">Recalculate</button>
-      
-      &nbsp;
-      <button *ngIf="!isTableVoid()" type="button" class="btn btn-primary btn-lg" (click)="generateTable()">Plot Graph</button>
-    </p>
-
-    <br/><br/>
-  -->
-  </form>
+</form>

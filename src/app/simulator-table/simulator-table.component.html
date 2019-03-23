@@ -1,7 +1,7 @@
-<div class="col-sm-12 d-none d-sm-block table table-dark">
+<div class="complete-table col-sm-12 d-none d-sm-block">
 
   <div *ngIf="months && months.length > 0">
-    <div class="row">
+    <div class="table-header row">
       <div class="col-sm-1">Month</div>
       <div class="col-sm-2">Opening Balance</div>
       <div class="col-sm-2">Interest</div>
@@ -10,48 +10,18 @@
       <div class="col-sm-1">Additional</div>
       <div class="col-sm-2">Total Balance</div>
     </div>
-    <div class="row" *ngFor="let month of months">
+    <div class="table-content row" *ngFor="let month of months">
       <div class="col-sm-1">{{month.month}}</div>
       <div class="col-sm-2">{{month.openingBalance | currency:'USD'}}</div>
       <div class="col-sm-2">{{month.interest | currency:'USD'}}</div>
       <div class="col-sm-2">{{month.balancePlusInterest | currency:'USD'}}</div>
       <div class="col-sm-2">{{month.monthInvestment | currency:'USD'}}</div>
       <div class="col-sm-1">
-        <input type="text" class="form-control" aria-label="input" name="profitabilityRate{{month.month}}" 
+        <input type="text" class="table-input" aria-label="input" name="profitabilityRate{{month.month}}" 
         [(ngModel)]="month.additionalInvestment" (ngModelChange)="applyAdditionalInvestment(month)" mask="comma_separator.2">
       </div>
       <div class="col-sm-2">{{month.totalBalance | currency:'USD'}}</div>
     </div>
-
-
   </div>
 
-
-  <!--<table class="table table-dark" *ngIf="months && months.length > 0">
-    <thead>
-      <tr>
-        <th scope="col">Month</th>
-        <th scope="col">Opening Balance</th>
-        <th scope="col">Interest</th>
-        <th scope="col">Balance + Interest</th>
-        <th scope="col">Month Investment</th>
-        <th scope="col">Additional Investment</th>
-        <th scope="col">Total Balance</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let month of months">
-        <td scope="row">{{month.month}}</td>
-        <td>{{month.openingBalance | currency:'USD'}}</td>
-        <td>{{month.interest | currency:'USD'}}</td>
-        <td>{{month.balancePlusInterest | currency:'USD'}}</td>
-        <td>{{month.monthInvestment | currency:'USD'}}</td>
-        <td >
-            <input type="text" class="form-control" aria-label="input" name="profitabilityRate{{month.month}}" 
-            [(ngModel)]="month.additionalInvestment" (ngModelChange)="applyAdditionalInvestment(month)" mask="comma_separator.2">
-        </td>
-        <td>{{month.totalBalance | currency:'USD'}}</td>
-      </tr>
-    </tbody>
-  </table>-->
 </div>

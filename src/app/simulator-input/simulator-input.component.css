@@ -1,0 +1,24 @@
+.label {
+    text-align: left;
+    color: rgb(12, 45, 80)
+}
+
+.input-type-group {
+    margin-right: -1px;
+}
+
+.input-type {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem;
+    margin-bottom: 7px;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 0.5;
+    color: #c89933;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #f4d195;
+    border: 3px solid #c89933;
+    border-radius: 2rem;
+}

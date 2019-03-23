@@ -1,7 +1,7 @@
-<div>{{title}}</div>
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text">{{type}}</span>
+<div class="col-12">
+  <div class="label"><b>{{title}}</b></div>
+  <div class="input-group mb-3">
+      <span *ngIf="type" class="input-type">{{type}}</span>
+    <ng-content></ng-content>
   </div>
-  <ng-content></ng-content>
 </div>
