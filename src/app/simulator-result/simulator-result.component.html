@@ -1,22 +1,16 @@
-
-
 <div class="result" *ngIf="finalTotalBalance">
   <div class="row">
-    <div class="result-label col-sm-8">Total Invested</div>
+    <div class="result-label col-sm-8"><b>Total Invested</b></div>
     <div class="result-value col-sm-4">{{finalTotalInvested | currency: USD}}</div>
   </div>
 
-
-
   <div class="row">
-    <div class="result-label col-sm-8">Profit Earned</div>
+    <div class="result-label col-sm-8"><b>Profit Earned</b></div>
     <div class="result-value col-sm-4">{{finalTotalEarned | currency: USD}}</div>
   </div>
 
-
-
   <div class="row">
-    <div class="result-label col-sm-8">Total Balance</div>
+    <div class="result-label col-sm-8"><b>Total Balance</b></div>
     <div class="result-value col-sm-4">{{finalTotalBalance | currency: USD}}</div>
   </div>
 </div>
