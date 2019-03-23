@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewChecked, ElementRef } from '@angular/core';
 import { SimulatorCalculatorService } from '../simulator-calculator.service';
 
 @Component({
@@ -8,13 +8,22 @@ import { SimulatorCalculatorService } from '../simulator-calculator.service';
 })
 export class SimulatorResultComponent implements OnInit {
 
-  months: any[];
+  finalTotalInvested: number;
+
+  finalTotalEarned: number;
+
+  finalTotalBalance: number;
 
   constructor(private simulatorCalculatorService: SimulatorCalculatorService) { 
   }
   
   ngOnInit() {
-    this.simulatorCalculatorService.getMonths().subscribe((m) => this.months = m.months);
+    this.simulatorCalculatorService.getMonths().subscribe((m) => { 
+      this.finalTotalBalance = m.finalTotalBalance;
+      this.finalTotalEarned = m.finalTotalEarned;
+      this.finalTotalInvested = m.finalTotalInvested;
+    });
+    this.simulatorCalculatorService.generateTable();
   }
 
 }

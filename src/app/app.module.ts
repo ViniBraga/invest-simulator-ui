@@ -33,7 +33,7 @@ import { SimulatorResultComponent } from './simulator-result/simulator-result.co
     MatInputModule,
     MatCardModule,
     FormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

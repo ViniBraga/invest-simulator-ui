@@ -10,11 +10,18 @@ export class SimulatorCalculatorService {
 
   private simulatorFields: SimulatorFields;
   private simulatorFieldsProcess: SimulatorFields;
+
   private subject = new Subject<any>();
 
   months: any[];
+  finalTotalBalance: number;
+  finalTotalEarned: number;
+  finalTotalInvested: number;
   
   init(simulatorFields: SimulatorFields) { 
+    this.finalTotalBalance = 0;
+    this.finalTotalEarned = 0;
+    this.finalTotalInvested = 0;
     this.months = [];
     this.simulatorFields = simulatorFields;
   }
@@ -32,7 +39,10 @@ export class SimulatorCalculatorService {
       let month = this.generateMonth(parseFloat(previousTotalBalance), index + 1);
       this.months.push(month);
     }
-    this.subject.next({ months: this.months });
+    this.subject.next({ 
+      months: this.months,
+      scrollToBotton: true
+    });
   }
 
   generateMonth(previousTotalBalance, currentMonth): SimulatorRow {
@@ -41,11 +51,8 @@ export class SimulatorCalculatorService {
     let month = currentMonth ? currentMonth : 0;
     let openingBalance = previousTotalBalance ? previousTotalBalance : 0;
     let interest = openingBalance * profitabilityRate;
-    
     let balancePlusInterest = openingBalance + interest;
-
     let monthInvestment: number = this.simulatorFieldsProcess.monthInvestment ? this.simulatorFieldsProcess.monthInvestment : 0;
-    
     let additionalInvestment = 0;
     let totalBalance =  balancePlusInterest + monthInvestment;
 
@@ -65,10 +72,16 @@ export class SimulatorCalculatorService {
   }
 
   applyAdditionalInvestment(month: SimulatorRow) {
-    month.additionalInvestment = Number(month.additionalInvestment);
+    month.additionalInvestment = Number(month.additionalInvestment);    
     this.updateMonth(month);
     this.recalculateMonthsFrom(month.month - 1)
-    this.subject.next({ months: this.months });
+    this.generateTotals()
+    this.subject.next({ 
+      months: this.months,
+      finalTotalBalance: this.finalTotalBalance,
+      finalTotalEarned : this.finalTotalEarned,
+      finalTotalInvested : this.finalTotalInvested,
+    });
   }
 
   updateMonth(month: SimulatorRow) {
@@ -90,6 +103,16 @@ export class SimulatorCalculatorService {
         previousTotalBalance = this.months[index].totalBalance;
       }
     }
+  }
+
+  generateTotals() {
+    this.finalTotalBalance = this.months[this.months.length - 1].totalBalance;
+    this.finalTotalInvested = Number(this.simulatorFields.initialInvestment);
+    this.finalTotalEarned = 0;
+    this.months.forEach(m => {
+      this.finalTotalEarned += m.interest;
+      this.finalTotalInvested += m.monthInvestment + m.additionalInvestment;
+    });
   }
 
 }

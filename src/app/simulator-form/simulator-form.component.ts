@@ -8,7 +8,7 @@ import { SimulatorFields } from '../entity/simulator-fields';
   styleUrls: ['./simulator-form.component.css']
 })
 export class SimulatorFormComponent implements OnInit {
-  
+
   simulatorFields: SimulatorFields;
 
   constructor(private simulatorCalculatorService: SimulatorCalculatorService) { 
@@ -24,10 +24,7 @@ export class SimulatorFormComponent implements OnInit {
   }
 
   isTableVoid(){
-    if (this.simulatorCalculatorService.months && this.simulatorCalculatorService.months.length > 0) {
-      return false;
-    }
-    return true;
+    return !this.simulatorCalculatorService.months || this.simulatorCalculatorService.months.length === 0;
   }
 
 }
