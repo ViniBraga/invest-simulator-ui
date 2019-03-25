@@ -2,11 +2,11 @@
 
 ## Description
 
-This is a compound interest tool for you to simulate the profit of an investment in a certain time
+This is a compound interest tool for you to simulate the profit of an investment in a certain time.
 
 Developed with Bootstrap, this application is responsive to any size of screen.
 
-available for testing at https://invest-simulator-ui.herokuapp.com
+Available for testing at https://invest-simulator-ui.herokuapp.com
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
