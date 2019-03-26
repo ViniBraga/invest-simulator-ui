@@ -25,7 +25,11 @@ export class SimulatorFormComponent implements OnInit {
   generateTable() {
     this.simulatorCalculatorService.generateTable();
     this.calculateButtonBlocked = true;
-    //TODO scrol to bottom
+    setTimeout(() => {
+      document.querySelector('.result').scrollIntoView({ 
+          behavior: 'smooth' 
+      });
+    }, 200);
   }
 
   unlockCalculateButton() {
