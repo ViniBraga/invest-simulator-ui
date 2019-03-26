@@ -11,7 +11,10 @@ export class SimulatorFormComponent implements OnInit {
 
   simulatorFields: SimulatorFields;
 
+  calculateButtonBlocked: boolean;
+
   constructor(private simulatorCalculatorService: SimulatorCalculatorService) { 
+    this.calculateButtonBlocked = false;
     this.simulatorFields = new SimulatorFields();
   }
 
@@ -21,6 +24,12 @@ export class SimulatorFormComponent implements OnInit {
 
   generateTable() {
     this.simulatorCalculatorService.generateTable();
+    this.calculateButtonBlocked = true;
+    //TODO scrol to bottom
+  }
+
+  unlockCalculateButton() {
+    this.calculateButtonBlocked = false;
   }
 
   isTableVoid(){
