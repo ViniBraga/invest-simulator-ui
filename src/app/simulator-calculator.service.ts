@@ -107,7 +107,7 @@ export class SimulatorCalculatorService {
 
   generateTotals() {
     this.finalTotalBalance = this.months[this.months.length - 1].totalBalance;
-    this.finalTotalInvested = Number(this.simulatorFields.initialInvestment);
+    this.finalTotalInvested = Number(this.simulatorFields.initialInvestment ? this.simulatorFields.initialInvestment : 0);
     this.finalTotalEarned = 0;
     this.months.forEach(m => {
       this.finalTotalEarned += m.interest;
