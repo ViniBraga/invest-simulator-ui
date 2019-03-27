@@ -4,7 +4,7 @@
 
 This is a compound interest tool for you to simulate the profit of an investment in a certain time.
 
-Developed with Bootstrap, this application is responsive to any size of screen.
+Developed with [Bootstrap](https://getbootstrap.com/), this application is responsive to any size of screen.
 
 Available for testing at https://invest-simulator-ui.herokuapp.com
 
